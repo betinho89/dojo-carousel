@@ -1,0 +1,195 @@
+/* Fonts */
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700);
+/*********/
+.leftPanel {
+	background-color: #ebebeb;
+	float: left;
+	width: 49%;
+}
+.rightPanel {
+	background-color: #ebebeb;
+	float: right;
+	width: 49%;
+}
+#carousel-cart {
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+}
+#carousel-cart .video-element {
+	position: relative;
+}
+#carousel-cart .fake-video-element {
+	position: absolute;
+	background: url('../img/fake-image.png') repeat;
+	height: 100%;
+	width: 100%;
+	z-index: 10;
+}
+#carousel-cart .video-element iframe,
+#carousel-cart .video-element object,
+#carousel-cart .video-element embed {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+#carousel-cart.horizontal {
+	margin: 1% 0;
+	width: 100%;
+}
+#carousel-cart.vertical {
+	float: left;
+	margin: 0.5%;
+	width: 28%;
+}
+#carousel-target {
+	text-align: center;
+}
+#carousel-target .video-element {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+}
+#carousel-target .video-element .fake-video-element {
+	display: none;
+}
+#carousel-target .video-element iframe,
+#carousel-target .video-element object,
+#carousel-target .video-element embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+#carousel-target.horizontal {
+	float: left;
+	margin: 1.5%;
+	width: 97%;
+}
+#carousel-target.vertical {
+	float: right;
+	margin: 0.5%;
+	width: 70%;
+}
+#carousel-target img {
+	display: inline-block;
+	float: none;
+	height: auto;
+	margin: auto;
+	width: 100%;
+}
+#carousel-target .target-content {
+	float: left;
+	height: auto;
+	opacity: 0;
+	width: 100%;
+}
+#carousel-target .target-data {
+	float: left;
+	width: 100%;
+}
+#carousel-target .target-data h2 {
+	font-family: 'Ubuntu Mono', arial, times;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 30px;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+#carousel-target .target-data p {
+	font-family: 'Ubuntu Mono', arial, times;
+	font-size: 16px;
+	font-weight: 400;
+	margin: 5px 0;
+	padding: 0;
+	text-align: left;
+}
+#carousel-images-inner {
+	text-align: center;
+}
+#carousel-images-inner .carousel-element {
+	display: inline-block;
+	height: auto;
+	line-height: 0;
+	max-height: 100%;
+	max-width: 100%;
+	margin: 0;
+	opacity: 1;
+	padding: 0;
+	transition: linear all 0.15s;
+	-webkit-transition: linear all 0.15s;
+	-moz-transition: linear all 0.15s;
+	-ms-transition: linear all 0.15s;
+	-o-transition: linear all 0.15s;
+	-webkit-transform: scale(0.88);
+	-moz-transform: scale(0.88);
+	-ms-transform: scale(0.88);
+	-o-transform: scale(0.88);
+	transform: scale(0.88);
+	width: auto;
+}
+#carousel-images-inner {
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+#carousel-images-inner .carousel-element:hover, #carousel-images-inner .carousel-element.current {
+	cursor: pointer;
+	box-shadow: 0 0 5px #2B2B2B;
+	-webkit-transform: scale(0.98);
+	-moz-transform: scale(0.98);
+	-ms-transform: scale(0.98);
+	-o-transform: scale(0.98);
+	transform: scale(0.98);
+}
+#carousel-cart .carousel-images-content {
+	float: left;
+	position: relative;
+	text-align: center;
+	vertical-align: middle;
+	width: 100%;
+}
+#carousel-cart .control {
+	cursor: pointer;
+	height: 24px;
+	position: absolute;
+	width: 24px;
+	z-index: 10;
+}
+#carousel-cart #leftControl {
+	background: url('../img/icon_left_arrow_flat.png') no-repeat center center;
+	background-size: cover;
+}
+#carousel-cart #leftControl.horizontal {
+	left: 0;
+}
+#carousel-cart #leftControl.vertical {
+	top: 0;
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+#carousel-cart #rightControl {
+	background: url('../img/icon_right_arrow_flat.png') no-repeat center center;
+	background-size: cover;
+	right: 0;
+}
+#carousel-cart #rightControl.horizontal {
+	right: 0;
+}
+#carousel-cart #rightControl.vertical {
+	bottom: 0;
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
