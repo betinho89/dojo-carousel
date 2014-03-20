@@ -1,4 +1,4 @@
 dojo-carousel
 =============
 
-Generates a carousel with dojo
+Plugin para generar un carrusel utilizando el framework de dojo.
