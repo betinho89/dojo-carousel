@@ -13,37 +13,71 @@
 			 * @param  {string} sTarget       	Destino de las imágenes al hacer clic sobre el carousel.
 			 * @param  {string} sPosition     	Posición del carousel 'horizontal' o 'vertical'
 			 * @param  {boolean} bSameWidth			Si es verdadero y la posición es 'vertical' toma el mismo alto que el ancho del contenedor.
+			 * @param  {boolean} bShowInfo			Si es verdadero lee las propiedades de data-title y data-description del elemento, para mostrarlo.
 			 * @param  {int} iMaxHeight    			Si el bSameWidth es falso, toma este valor como el alto del carousel (pixeles), solo si la posición es vertical.
 			 * @param  {int} iDuration     			Duracción en segundos, que tarda para cambiar entre secciones de imágenes dentro del carousel.
 			 * @param  {int} iNumberImages 			Numero de imágenes a mostrar por sección en el carousel.
 			 */
 			var settings = {
-				sSource: "carousel-cart",
+				sSource: "carousel-source",
 				sTarget: "carousel-target",
 				sPosition: "vertical",
-				iNumberImages: 3
+				iNumberImages: 3,
+				bShowInfo: true
 			};
-			carousel(settings);
+			var oCustomCarousel = new Carousel();
+			oCustomCarousel.setSettings(settings);
+			oCustomCarousel.initCarousel();
+
+			var settings2 = {
+				sSource: "carousel-source2",
+				sTarget: "carousel-target2",
+				sPosition: "horizontal",
+				iNumberImages: 4,
+				bShowInfo: false
+			};
+			var oCustomCarousel2 = new Carousel();
+			oCustomCarousel2.setSettings(settings2);
+			oCustomCarousel2.initCarousel();
 		});
 	</script>
 </head>
 <body>
-	<div class="leftPanel">
-		<div id="carousel-target"></div>
-		<div id="carousel-cart">
-			<img src="img/img1.jpg" class="carousel-element" data-title="Titulo 1" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." alt="">
-			<img src="img/img2.jpg" class="carousel-element" data-title="Titulo 2" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." alt="">
-			<img src="img/img3.jpg" class="carousel-element" data-title="Titulo 3" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." alt="">
-			<div class="carousel-element video-element" data-title="Titulo 4" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
-				<iframe src="//www.youtube.com/embed/S7b1aLY3tyI" frameborder="0" allowfullscreen></iframe>
+	<div id="wrapper">
+		<div id="content">
+			<div id="carousel-target" class="carousel-target"></div>
+			<div id="carousel-source" class="carousel-source">
+				<img src="http://www.betinho89.com/examples/carousel-with-dojo/img/chris1_lg.jpg" class="carousel-element" data-title="Titulo 1" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." alt="">
+				<img src="http://www.betinho89.com/examples/carousel-with-dojo/img/chris2_lg.jpg" class="carousel-element" data-title="Titulo 2" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." alt="">
+				<img src="http://www.betinho89.com/examples/carousel-with-dojo/img/chris3_lg.jpg" class="carousel-element" data-title="Titulo 3" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." alt="">
+				<div class="carousel-element video-element" data-title="Titulo 4" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+					<iframe src="//www.youtube.com/embed/S7b1aLY3tyI" frameborder="0" allowfullscreen></iframe>
+				</div>
+				<img src="http://www.betinho89.com/examples/carousel-with-dojo/img/chris3_lg.jpg" class="carousel-element" data-title="Titulo 5" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." alt="">
+				<img src="http://www.betinho89.com/examples/carousel-with-dojo/img/chris2_lg.jpg" class="carousel-element" data-title="Titulo 6" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." alt="">
+				<img src="http://www.betinho89.com/examples/carousel-with-dojo/img/chris1_lg.jpg" class="carousel-element" data-title="Titulo 7" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." alt="">
+				<img src="http://www.betinho89.com/examples/carousel-with-dojo/img/chris1_lg.jpg" class="carousel-element" data-title="Titulo 8" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." alt="">
+				<img src="http://www.betinho89.com/examples/carousel-with-dojo/img/chris3_lg.jpg" class="carousel-element" data-title="Titulo 9" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." alt="">
+				<div class="carousel-element video-element" data-title="Titulo 10" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+					<iframe src="//www.youtube.com/embed/K7VLU1ivx2g" frameborder="0" allowfullscreen></iframe>
+				</div>
 			</div>
-			<img src="img/img3.jpg" class="carousel-element" data-title="Titulo 5" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." alt="">
-			<img src="img/img2.jpg" class="carousel-element" data-title="Titulo 6" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." alt="">
-			<img src="img/img1.jpg" class="carousel-element" data-title="Titulo 7" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." alt="">
-			<img src="img/img1.jpg" class="carousel-element" data-title="Titulo 8" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." alt="">
-			<img src="img/img3.jpg" class="carousel-element" data-title="Titulo 9" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." alt="">
-			<div class="carousel-element video-element" data-title="Titulo 10" data-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
-				<iframe src="//www.youtube.com/embed/K7VLU1ivx2g" frameborder="0" allowfullscreen></iframe>
+		</div>
+		<div id="content2">
+			<div id="carousel-target2" class="carousel-target"></div>
+			<div id="carousel-source2" class="carousel-source">
+				<img src="http://www.betinho89.com/examples/carousel-with-dojo/img/chris1_lg.jpg" class="carousel-element" alt="">
+				<img src="http://www.betinho89.com/examples/carousel-with-dojo/img/chris3_lg.jpg" class="carousel-element" alt="">
+				<div class="carousel-element video-element">
+					<iframe src="//www.youtube.com/embed/S7b1aLY3tyI" frameborder="0" allowfullscreen></iframe>
+				</div>
+				<img src="http://www.betinho89.com/examples/carousel-with-dojo/img/chris3_lg.jpg" class="carousel-element" alt="">
+				<img src="http://www.betinho89.com/examples/carousel-with-dojo/img/chris2_lg.jpg" class="carousel-element" alt="">
+				<img src="http://www.betinho89.com/examples/carousel-with-dojo/img/chris1_lg.jpg" class="carousel-element" alt="">
+				<img src="http://www.betinho89.com/examples/carousel-with-dojo/img/chris1_lg.jpg" class="carousel-element" alt="">
+				<div class="carousel-element video-element">
+					<iframe src="//www.youtube.com/embed/K7VLU1ivx2g" frameborder="0" allowfullscreen></iframe>
+				</div>
 			</div>
 		</div>
 	</div>
