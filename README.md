@@ -60,8 +60,6 @@ Opciones del plugin.
 <p><b>NOTA:</b> sTarget y sSource son obligatorios.</p>
 <p>Opciones por defecto.</p>
 <pre>
-	sTarget: "",
-	sSource: "",
 	sPosition: "horizontal",
 	bSameWidth: false,
 	iMaxHeight: 500,
