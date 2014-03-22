@@ -122,6 +122,11 @@
 	float: left;
 	height: auto;
 	opacity: 0;
+	-webkit-transition: 0.3s margin linear;
+	-moz-transition: 0.3s margin linear;
+	-ms-transition: 0.3s margin linear;
+	-o-transition: 0.3s margin linear;
+	transition: 0.3s margin linear;
 	width: 100%;
 }
 .carousel-target .target-data {
