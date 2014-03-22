@@ -121,3 +121,4 @@ Como usar
 		&lt;/div>
 	&lt;/div>
 </pre>
+<p>Para ver ejemplo da clic <a href="http://www.betinho89.com/examples/carousel-with-dojo/" title="">aquí.</a></p>
