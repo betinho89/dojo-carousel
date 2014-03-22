@@ -12,7 +12,7 @@ Carousel.prototype = {
 	iNumberImages: 3,
 	bContinue: false,
 	bShowInfo: false,
-	// Globals
+	// Globals vars
 	oTimer: null,
 	iTimer: 0,
 	iCurrent: 0,
@@ -51,6 +51,7 @@ Carousel.prototype = {
 					oCarousel.sDimension = (oCarousel.sPosition === 'horizontal') ? "width" : "height";
 					oCarousel.oCarouselImages = query("#" + oCarousel.sSource + " .carousel-element");
 					oCarousel.bHover = false;
+
 					if(oCarousel.sPosition === 'vertical') {
 						if(oCarousel.bSameWidth === false) {
 							oCarousel.iMaxSize = oCarousel.iMaxHeight;
@@ -60,6 +61,7 @@ Carousel.prototype = {
 
 					var fSizeofImages = (90 / oCarousel.iNumberImages).toFixed(5);
 					var fPaddingofImages = (9 / oCarousel.iNumberImages).toFixed(5);
+
 					query("#" + oCarousel.sSource).append("<div class='carousel-images-inner'></div>");
 					domClass.add(oCarousel.sSource, oCarousel.sPosition);
 					domClass.add(oCarousel.sTarget, oCarousel.sPosition);
@@ -119,16 +121,20 @@ Carousel.prototype = {
 					});
 
 					oCarousel.showTargetImage(oFirstImage, oCarousel);
+
 					var iSizeInner = domGeometry.getContentBox(oCarousel.sSource);
 					var iSizeControl = domGeometry.getContentBox(oCarousel.sLeftControlId);
+
 					var iPositionControl = Math.ceil((iSizeInner.h - iSizeControl.h) / 2);
 					if(oCarousel.sPosition === 'vertical') {
 						iPositionControl = Math.ceil((iSizeInner.w - iSizeControl.w) / 2);
 					}
 					domStyle.set(oCarousel.sLeftControlId, (oCarousel.sPosition === 'horizontal') ? "top" : "left", String(iPositionControl) + "px");
 					domStyle.set(oCarousel.sRightControlId, (oCarousel.sPosition === 'horizontal') ? "top" : "left", String(iPositionControl) + "px");
+
 					oCarousel.manageControls(oCarousel.iCurrent, oCarousel);
 					oCarousel.autoRotate(oCarousel.iCurrent, oCarousel);
+
 					query("#" + oCarousel.sSource).on("mouseover", function(evt) {
 						oCarousel.bHover = true;
 						window.clearInterval(oCarousel.oTimer);
@@ -154,6 +160,7 @@ Carousel.prototype = {
 							domClass.remove(node, "current");
 						});
 						domClass.add(this, "current");
+
 						var oNewImageTarget = this.cloneNode(true);
 						oCarousel.showTargetImage(oNewImageTarget, oCarousel);
 					});
@@ -234,26 +241,29 @@ Carousel.prototype = {
 			function(query, domGeometry, domStyle) {
 				if(oCarousel.sPosition === 'vertical') {
 					var oAux = query("#" + oCarousel.sTarget + " > .target-content")[0];
-					var oAux2 = document.getElementById(oCarousel.sTarget).firstChild;
 					var iTopImage = 0;
-					iTopImage = Math.ceil((oCarousel.iMaxSize - parseInt(domGeometry.getContentBox(oAux).h, 10)) / 2);
-					if(iTopImage > 0) {
-						domStyle.set(oAux, "margin-top", iTopImage + "px");
-					}
+					setTimeout(function() {
+						console.log(domGeometry.getContentBox(oAux));
+						iTopImage = Math.ceil((oCarousel.iMaxSize - parseInt(domGeometry.getContentBox(oAux).h, 10)) / 2);
+						if(iTopImage > 0) {
+							domStyle.set(oAux, "margin-top", iTopImage + "px");
+						}
+					}, 200);
 				}
 			}
 		);
 	},
 	showTargetImage: function(oImage, oCarousel) {
 		require(["dojo/dom-attr", "dojo/query", "dojo/NodeList-manipulate", "dojo/_base/fx", "dojo/NodeList-fx"],
-			function(domAttr, query, fx) {
-				domAttr.remove(oImage, "style");
+			function(domAttr, query,  fx) {
+				domAttr.set(oImage, "style", "");
 				query("#" + oCarousel.sTarget).innerHTML("<div class='target-content'></div>");
 				query("#" + oCarousel.sTarget + " > .target-content").append(oImage);
 
 				if(oCarousel.bShowInfo) {
 					var sTitle = (domAttr.has(oImage, "data-title")) ? domAttr.get(oImage, "data-title") : "";
 					var sDescription = (domAttr.has(oImage, "data-description")) ? domAttr.get(oImage, "data-description") : "";
+
 					if(sTitle !== "" || sDescription !== "") {
 						query("#" + oCarousel.sTarget + " > .target-content").append("<div class='target-data'>" + ((sTitle !== "") ? "<h2>" + sTitle + "</h2>" : "") + ((sDescription !== "") ? "<p>" + sDescription + "</p>" : "") + "</div>");
 					}
